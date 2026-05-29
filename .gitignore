@@ -3,6 +3,7 @@ node_modules/
 *.csv
 *.log
 *.txt
+!requirements.txt
 debug_pdfs/
 failed_pdfs/
 invoices/
@@ -12,4 +13,5 @@ poppler-*/
 .env
 keys.json
 __pycache__/
+
 

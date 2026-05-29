@@ -1,7 +1,7 @@
-# Use a lightweight Node.js base image
-FROM node:20-slim
+# Use a lightweight Python base image
+FROM python:3.10-slim
 
-# Install system dependencies (Poppler for pdftoppm, and Tesseract OCR)
+# Install system dependencies (Poppler for pdftoppm/pdftotext, and Tesseract OCR)
 RUN apt-get update && apt-get install -y \
     poppler-utils \
     tesseract-ocr \
@@ -10,15 +10,15 @@ RUN apt-get update && apt-get install -y \
 # Create app directory
 WORKDIR /app
 
-# Copy package files and install dependencies
-COPY package*.json ./
-RUN npm install --production
+# Copy requirements file and install dependencies
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy all project files
 COPY . .
 
-# Expose the API port
+# Expose the API port (api.py runs on port 5557)
 EXPOSE 5557
 
-# Start the server
-CMD ["node", "api.js"]
+# Start the Flask server
+CMD ["python", "api.py"]
