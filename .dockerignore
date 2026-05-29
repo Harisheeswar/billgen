@@ -1,0 +1,16 @@
+node_modules
+*.exe
+*.dll
+*.xlsx
+*.csv
+*.log
+*.txt
+debug_pdfs
+failed_pdfs
+invoices
+poppler-*
+tessdata
+.git
+.gitignore
+Dockerfile
+.dockerignore

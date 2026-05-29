@@ -1,0 +1,15 @@
+node_modules/
+*.xlsx
+*.csv
+*.log
+*.txt
+debug_pdfs/
+failed_pdfs/
+invoices/
+*.exe
+*.dll
+poppler-*/
+.env
+keys.json
+__pycache__/
+

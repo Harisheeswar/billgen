@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BillGen | Server Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>BillGen <span>Server</span></h1>
+            </div>
+            <div class="status-badge" id="server-status">
+                <span class="dot"></span> ONLINE
+            </div>
+        </header>
+
+        <main class="dashboard-grid">
+            <!-- API Keys Section -->
+            <section class="glass-card api-section">
+                <div class="card-header">
+                    <h2>API Key Management</h2>
+                    <button class="btn-primary" id="add-key-btn">+ Create Key</button>
+                </div>
+                <div class="key-list" id="key-list">
+                    <!-- Keys will be injected here -->
+                    <div class="loading">Loading keys...</div>
+                </div>
+            </section>
+
+            <!-- Logs Section -->
+            <section class="glass-card logs-section">
+                <div class="card-header">
+                    <h2>Live Server Logs</h2>
+                    <span class="auto-refresh">Auto-refreshing</span>
+                </div>
+                <div class="log-terminal" id="log-terminal">
+                    <!-- Logs will be injected here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for adding key -->
+    <div class="modal" id="add-key-modal">
+        <div class="glass-card modal-content">
+            <h3>Generate New API Key</h3>
+            <p>Enter a label to identify this key (e.g., "Google Apps Script").</p>
+            <input type="text" id="key-label" placeholder="Key Label...">
+            <div class="modal-actions">
+                <button class="btn-secondary" id="close-modal">Cancel</button>
+                <button class="btn-primary" id="confirm-add-key">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notifications"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
