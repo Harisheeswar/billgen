@@ -5,8 +5,10 @@ node_modules
 *.csv
 *.log
 *.txt
+!requirements.txt
 debug_pdfs
 failed_pdfs
+
 invoices
 poppler-*
 tessdata
