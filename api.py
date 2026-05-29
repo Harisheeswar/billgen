@@ -29,14 +29,21 @@ def health():
         "time": time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
     })
 
-@app.route('/', methods=['POST'])
-@app.route('/extract-pdf', methods=['POST'])
-@app.route('/process', methods=['POST'])
-@app.route('/upload', methods=['POST'])
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/extract-pdf', methods=['GET', 'POST'])
+@app.route('/process', methods=['GET', 'POST'])
+@app.route('/upload', methods=['GET', 'POST'])
 def extract_pdf():
     print(f"\n{'='*60}")
-    print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Incoming request: {request.path}")
+    print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] Incoming request: {request.path} ({request.method})")
     
+    if request.method == 'GET':
+        return jsonify({
+            "success": True,
+            "message": "Endpoint is ready for POST requests",
+            "time": time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
+        })
+        
     try:
         data = request.json
         if not data:
